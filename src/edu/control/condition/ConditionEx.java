@@ -94,7 +94,7 @@ public class ConditionEx {
         /*
         * 입력값이 잘못 되었을 경우 메서드 기능을 중간에 종료
         * */
-        if(month >= 1 && month <= 12){
+        if(month < 1 || month > 12){
             System.out.println("잘못 입력하였습니다.");
             return; // 아래 기능 수행하지 못하게 돌려보내기
         }
