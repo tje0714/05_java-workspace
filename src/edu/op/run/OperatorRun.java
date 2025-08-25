@@ -39,6 +39,9 @@ public class OperatorRun {
         // new OperatorEx().test();
         //op.test(); // 새로운 객체를 생성해서 객체 내부에 존재하는 기능 사용하겠다.
         //op.method1();
-        op.method2();
+        //op.method2();
+        //op.method3(); // OperatorEx 내부에 존재하는 method3() 기능을
+                      // op 별칭으로 호출하여 사용
+        op.method4();
     }
 }
