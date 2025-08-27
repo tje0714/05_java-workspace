@@ -31,7 +31,7 @@ public class Account {
 
     // 메서드(기능) - 필수생성자
     // c 형태 아래에 존재하는 f 형태에서 필요한 속성 명칭을 선택해서 생성
-    public Account(String password, long balance, String accountNumber, String name) {
+    public Account(String name,String accountNumber,  long balance,String password  ) {
         this.password = password;
         this.balance = balance;
         this.accountNumber = accountNumber;
@@ -154,4 +154,6 @@ public class Account {
         System.out.printf("%s 계좌에서 %d원 출금 \n : ",accountNumber,amount);
         System.out.println(name + " 의 현재 잔액 : " + balance);
     }
+
+
 }
