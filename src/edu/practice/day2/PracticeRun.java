@@ -5,7 +5,8 @@ import edu.practice.day1.Exercise5;
 public class PracticeRun {
     public static void main(String[] args) {
      Practice practice = new Practice();
-     practice.method7();
+     practice.method3();
+     //practice.method7();
         /**  practice.method7(); 출력결과
          * 문자열을 숫자 포함해서 입력해보세요 : 안녕하세요. 2025년 8월 입니다.
          *

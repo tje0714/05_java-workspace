@@ -11,7 +11,28 @@ public class Practice {
     public void method1(){
 
     }
+    /**
+     * 문제 3번 : 팩토리얼 계산기
+     */
+    public void method3(){
+        Scanner sc =new Scanner(System.in);
+        System.out.print("팩토리얼을 구할 숫 자를 입력하세요 : ");
+        int number = sc.nextInt();
+        int factorial = 1;
+        // 계산과정을 넣기 위한 문자열 변수
+        String process ="";
+        // number 부터 1까지 내려가면서 계산
+        for(int i=number; i>=1;i--){
+            factorial *= i;
+            process += i; //문자열에 현재 숫자(i)를 추가
+            if( i > 1) {
+                process += " x" ;
+            }
+        }
+        // for 문 탈출 후
+        System.out.printf("%d! = %s = %d \n",number, process, factorial);
 
+    }
     /**
      * 문제 4번 : 소수 판별기
      */
