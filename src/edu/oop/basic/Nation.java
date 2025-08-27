@@ -7,13 +7,87 @@ package edu.oop.basic;
 public class Nation {
     // private 대신 public 을 이용하여 다른 클래스 파일에서 Nation에 작성된 속성 기능 호출해서 사용
 
-    /* 속성(값) */
-    public String name;        // 이름
-    public int age;            // 나이
-    public char gender;        // 성별
-    public String juminNumber; // 주민등록번호
-    public String tel;         // 전화번호
-    public String address;     // 주소
+    /* 속성(값)  public -> private */
+    private String name;        // 이름
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private int age;            // 나이
+    private char gender;        // 성별
+    private String juminNumber; // 주민등록번호
+    private String tel;         // 전화번호
+    private String address;     // 주소
+    /* 메서드 생성자 기본 필수 생성
+     *       필수 생성자의 경우 필드 속성값에 작성되어있는 변수명칭 순서대로작성
+     *  */
+    public Nation() {
+    }
+
+    public Nation(String name, int age, char gender, String juminNumber, String tel, String address) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.juminNumber = juminNumber;
+        this.tel = tel;
+        this.address = address;
+    }
+    // 메서드 setter(데이터 간접적으로 저장하는) getter(데이터 간접적으로 사용하는)  완성
+
+
+    /**
+     * set변수이름 을 직접적으로 활용하지 않으면
+     * setJuminNumber 메서드 이름 처럼 회색 빛으로
+     * 사용되지 않은 메서드임이 표기되어 있음
+     */
+    // ************************************************
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public void setJuminNumber(String juminNumber) {
+        this.juminNumber = juminNumber;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public String getJuminNumber() {
+        return juminNumber;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 
     /* 기능 */
     public void seakKorean(){
@@ -34,6 +108,11 @@ public class Nation {
     }
     /**
      * 자기 소개 기능
+     * private 작성한 클래스 내부에서만 변수이름을 사용 가능하게끔 설정
+     *  name, age, gender 는 외부에서 변수이름을 직접적으로 호출해서 사용불가
+     *  public void introduce() 메서드 내부에서 변수이름을 호출하고
+     *  외부에서 name 대신에 introduce() 기능을 이용해서 변수이름에 해당하는 값 확인 가능
+     *
      */
     public void introduce(){
         System.out.printf("이름은 %s 이고, %d세 %c성 입니다. \n", name, age, gender);
