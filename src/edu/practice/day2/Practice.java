@@ -9,7 +9,38 @@ public class Practice {
      * 문제 1번 : 짝수만 출력하기
      */
     public void method1(){
+        Scanner sc=new Scanner(System.in);
 
+        System.out.print("첫 번째 숫자 : ");
+        int input1 =  sc.nextInt();
+        System.out.print("두 번째 숫자 : ");
+        int input2 =  sc.nextInt();
+        int min = Math.min(input1,input2);
+        int max = Math.max(input1,input2);
+        // Math.min(input1, input2), Math.max(input1, input2)
+        for(int i = min; i<=max; i++){
+            if(i%2==0){
+                System.out.print(i + "");
+            }
+        }
+        System.out.println(); //int Enter 처리
+    }
+
+    /**
+     * 문제 2번 : 별표 삼각형 만들기
+     */
+    public void method2(){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("높이를 입력하세요 : ");
+        int height =  sc.nextInt();
+        System.out.println(); // int 남은 버퍼 처리
+        // 높이만큼 별의 개수 출력
+        for(int i = 1 ; i<=height ; i++){
+            for(int j = 1 ; j<=i ; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
     /**
      * 문제 3번 : 팩토리얼 계산기
@@ -36,7 +67,80 @@ public class Practice {
     /**
      * 문제 4번 : 소수 판별기
      */
-    public void method4(){}
+    public void method4(){
+        Scanner sc =new Scanner(System.in);
+
+        System.out.print("숫자를 입력하세요 : ");
+        int number = sc.nextInt();
+
+        boolean isPrime = true;
+        if(number < 2){
+            isPrime = false;
+        } else {
+            for(int i = 2; i<=number; i++){
+                if(number%i==0){
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+
+        if(isPrime){
+            System.out.println(number + "는  소수입니다.");
+        } else {
+            System.out.println(number + "는 소수가 아닙니다.");
+        }
+    }
+    /**
+     * 문제 5번 : 구구단 선택기
+     * === 구구단 프로그램 ===
+     * 1. 특정 단 출력
+     * 2. 전체 구구단 출력
+     * 0. 종료
+     * 선택: 1
+     * """ """" <pre></pre> 같은 출력 구문
+     */
+    public void method5(){
+        Scanner sc =new Scanner(System.in);
+        while(true){
+            System.out.println("""
+=== 구구단 프로그램 ===
+1. 특정 단 출력
+2. 전체 구구단 출력
+0. 종료
+                    """);
+            System.out.print("선택 :");
+            int choice = sc.nextInt();
+
+            switch(choice){
+                case 1:
+                    System.out.print("몇 단을 출력하시겠습니까 : ");
+                    int dan = sc.nextInt();
+                    System.out.println("[ " + dan + " ]단");
+                    for(int i = 1; i<=9; i++){
+                        System.out.printf("%d X %d = %2d\n", dan, i, dan * i);
+                    }
+                case 2:
+                    System.out.println("=== 전체 구구단 ===");
+                    for(int j = 2; j<=9; j++){
+
+                        System.out.println("[ " + j + " ]단");
+                        for(int i = 1; i<=9; i++){
+                            System.out.printf("%d X %d = %2d\n", j, i, j * i);
+                        }
+                        System.out.println( );
+                    }
+                    break;
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    return; // while 구문 탈출해서 기능 중지
+                default:
+                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
+            }
+        }
+    }
+
 
     /**
      * 문제 6번 : 숫자 맞히기 게임(1~50)
