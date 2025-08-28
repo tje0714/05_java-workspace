@@ -1,6 +1,7 @@
 package edu.practice.day2;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice {
@@ -193,4 +194,93 @@ public class Practice {
         System.out.println("기타 문자(공백, 기호) : " + otherCount);
     }
 
+    /**
+     * 문제 8번 : 성적 관리 프로그램
+     */
+    public void method8(){
+        Scanner sc = new Scanner(System.in);
+        int[] scores = new int[5];
+        int total = 0;
+
+        System.out.print("5명의 성적을 입력하세요 : ");
+        // 성적 입력받기
+        for(int i = 0; i < scores.length; i++) {
+            System.out.print((i + 1) + "번 학생");
+            scores[i] = sc.nextInt();
+            total += scores[i];
+        }
+        double average = (double)total / scores.length;
+
+        int max = scores[0];
+        int min = scores[0];
+
+        for(int i = 1; i < scores.length; i++) {
+            max = Math.max(scores[i], max);
+            min = Math.min(scores[i], min);
+        }
+    }
+    /**
+     * 문제 9번 : 배열 뒤집기
+     */
+    public void method9(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("배열의 크기를 입력하세요 (1~10) : ");
+        int size = sc.nextInt();
+
+        // 배열 크기 제한
+        if(size <1 || size > 10){
+            System.out.println("1~10 사이의 숫자를 입력하세요 : ");
+            return;
+        }
+
+        int[] original =  new int[size];
+        int[] reversed = new int[size];
+
+        // 원본 배열 입력받기
+        for(int i = 0; i< original.length; i++){
+            System.out.print((i + 1) + "번째 숫자 입력 : ");
+            original[i] = sc.nextInt();
+        }
+
+        // 배열 뒤집기
+        for(int i = 0; i<size; i++) {
+            reversed[i] = original[size - 1 - i];
+        }
+
+        System.out.println("\n원본 배열 : " + Arrays.toString(original));
+        System.out.println("뒤집힌 배열 : " + Arrays.toString(reversed));
+    }
+
+    /**
+     * 문제 10번 : 간단한 로또 번호 생성기
+     */
+    public void method10(){
+        System.out.println("=== 간단 로또 번호 생성기 ===");
+
+        int[] lotto = new int[6];
+       // 6개의 중복되지 않은 번호 생성
+        for(int i = 0; i < lotto.length; i++){
+            while(true) { // 중복 검사 확인
+                int randomNum = (int)(Math.random() * 45) + 1;
+                boolean isDuplicated = false;
+                for(int j = 0; j < i; j++){
+                    if(randomNum == lotto[j]){
+                        isDuplicated = true; // 랜덤번호가 기존 번호들이랑 동일하다면
+                        break; // 중복을 찾았으니 for문 탈출
+                    }
+                }
+
+                // 중복되지 않았다면 번호를 배열에 저장
+                if(!isDuplicated){
+                    lotto[i] = randomNum;
+                    break;
+                }
+
+            }
+        }
+
+        // 생성된 번호 출력
+        System.out.println("생성된 번호 : " + Arrays.toString(lotto));
+        System.out.println("프로그램을 종료합니다.");
+    }
 }

@@ -5,7 +5,7 @@ import edu.practice.day1.Exercise5;
 public class PracticeRun {
     public static void main(String[] args) {
      Practice practice = new Practice();
-     practice.method2();
+     //practice.method2();
      //practice.method3();
      //practice.method7();
         /**  practice.method7(); 출력결과
@@ -17,5 +17,6 @@ public class PracticeRun {
          *     숫자 글자수 : 5
          *     공백 마침표는 제외하고 셋 숫자값
          */
+        practice.method10();
     }
 }
