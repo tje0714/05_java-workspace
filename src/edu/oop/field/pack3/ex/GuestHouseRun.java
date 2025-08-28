@@ -1,6 +1,6 @@
 package edu.oop.field.pack3.ex;
 
-public class GustHouseRun {
+public class GuestHouseRun {
     public static void main(String[] args) {
         System.out.println("=== 게스트하우스 방문자 관리 시스템 ===");
 
