@@ -144,9 +144,35 @@ public class Practice {
 
 
     /**
-     * 문제 6번 : 숫자 맞히기 게임(1~50)
+     * 문제 6번 : 숫자 맞히기 게임 (1~50)
      */
-    public void method6(){}
+    public void method6(){
+        Scanner sc = new Scanner(System.in);
+
+        int answer = (int)(Math.random() * 50) + 1;
+        int input;
+        int count = 0;
+        final int MAX_TRIES = 7;
+
+        System.out.println("1~50 사이의 숫자를 맞혀보세요!");
+
+        while(count < MAX_TRIES) {
+            count++;
+            System.out.printf("시도 %d/%d: ", count, MAX_TRIES);
+            input = sc.nextInt();
+
+            if(input == answer) {
+                System.out.printf("정답입니다! 정답: %d, 시도횟수: %d회\n", answer, count);
+                return;
+            } else if(input < answer) {
+                System.out.println("입력한 숫자보다 정답이 큽니다.");
+            } else {
+                System.out.println("입력한 숫자보다 정답이 작습니다.");
+            }
+        }
+
+        System.out.printf("게임 종료! 정답은 %d였습니다.\n", answer);
+    }
 
     /**
      * 문제 7번 : 문자열 분석기
