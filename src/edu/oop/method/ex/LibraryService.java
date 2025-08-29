@@ -8,6 +8,9 @@ import java.util.Scanner;
 public class LibraryService {
     // 필드 인스턴스 변수 속성
     Scanner sc = new Scanner(System.in);
+    LibraryMember m1 = null; // -> m1 만 사용  추가 Array -> ArrayList 활용
+    LibraryMember m2 = null;
+    LibraryMember m3 = null;
     public void displayMenu() {
 
         int input;
@@ -31,7 +34,14 @@ public class LibraryService {
                 case 1: // 회원 등록
                 System.out.println("회원을 등록할 슬롯을 선택하세요.");
                 System.out.print("1=member1 / 2=member2 / 3=member3: ");
+                int select = sc.nextInt();
                 // createMember() 메서드 호출하여 새 회원 생성
+                    if(select <1 || select > 3){
+                        System.out.println("잘못된 번호입니다. 1~3 중선택하세요.");
+                        return;
+                    } else if (select == 1) m1=createMember();
+                     else if (select == 2)  m2=createMember();
+                     else m3=createMember();
                 break;
 
                 case 2: // 회원 정보 확인
@@ -71,4 +81,10 @@ public class LibraryService {
             }
         }
     }
+
+    /**
+     *
+     * @return 생성된 도서관 멤버정보를 각 멤버 위치에 전달
+     */
+    private LibraryMember createMember() {}
 }
