@@ -1,4 +1,4 @@
-package edu.inheritance.ex;
+package edu.inheritance.ex1;
 /*
 `Bird` 자식 클래스 작성
 
