@@ -1,0 +1,14 @@
+DB와Java각각의 이름을 연결하는 공간
+
+DB에서 memberId 대신 id 라는 컬럼명으로 memberId를 저장한다면?
+
+DB   = Java
+
+id   = memberId
+name = memberName
+pw   = memberPW
+age  = memberAge
+
+
+English = 한국어
+ tree   = 나무
