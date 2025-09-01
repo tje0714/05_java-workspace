@@ -48,3 +48,44 @@ public class 아이폰 extends 스마트폰{
     // 앱스토어 어플 다운 기능
 }
  */
+
+
+
+
+
+/*
+public class A {
+
+    public void method1(){
+
+    }
+
+    public void method1(String ab){
+
+    }
+
+    public void method1(int ac){
+
+    }
+}
+
+public class B extends A {
+
+    public void method1(String ab){
+        // 수정 기능
+    }
+
+}
+
+
+ */
+
+
+
+
+
+
+
+
+
+
