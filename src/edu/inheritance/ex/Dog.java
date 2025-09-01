@@ -72,4 +72,12 @@ public class Dog extends Animal {
     public void fetch(){
         System.out.println(getName() + "이(가) 공을 물어옵니다.!");
     }
+
+    public  void showInfo(){
+        System.out.println("===== 정보 =====");
+        System.out.println("이름 : " + getName());
+        System.out.println("나이 : " + getAge());
+        System.out.println(" 색상: " + getBreed()); // 앞에 is 가 붙으면 get 생략
+        // is get 둘다 동사이기 때문에 is를 사용
+    }
 }

@@ -43,6 +43,14 @@ public class Cat extends Animal {
         this.isIndoor = isIndoor;
     }
 
+    public boolean isIndoor() {
+        return isIndoor;
+    }
+
+    public void setIndoor(boolean indoor) {
+        isIndoor = indoor;
+    }
+
     // Animal 클래스에서 작성한 기능을 재사용
     @Override
     public void makeSound() {
@@ -62,5 +70,12 @@ public class Cat extends Animal {
 
     public void scratch(){
         System.out.println(getName() + "이(가) 발톱으로 긁습니다.");
+    }
+    public  void showInfo(){
+        System.out.println("===== 정보 =====");
+        System.out.println("이름 : " + getName());
+        System.out.println("나이 : " + getAge());
+        System.out.println(" 색상: " + isIndoor()); // 앞에 is 가 붙으면 get 생략
+        // is get 둘다 동사이기 때문에 is를 사용
     }
 }

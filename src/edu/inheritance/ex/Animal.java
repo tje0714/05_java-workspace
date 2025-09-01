@@ -34,6 +34,11 @@ public class Animal {
         this.color = color;
     }
 
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     // 게터 = 데이터 전달할 수 있는 기능
     public String getName() { return name; }
     public int getAge() { return age; }
@@ -60,4 +65,6 @@ public class Animal {
     public void move() {
         System.out.println(name + "이(가) 네 발로 뛰어다닙니다.");
     }
+
+
 }
