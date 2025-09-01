@@ -56,12 +56,18 @@ public class Dog extends Animal {
     // Animal 클래스에 작성된 기능을 재사용 하여 Dog 클래스에서 필요한 기능으로 재탄생
     @Override
     public void makeSound() {
-
+        System.out.println(getName() + "이(가) 멍멍 짖습니다.");
     }
 
     @Override
     public void move(){
+        System.out.println(getName() + "이(가) 네 발로 뛰어다닙니다.");
+    }
 
+    @Override
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("품종 : " + getBreed());
     }
 
     // Dog 클래스에서만 사용할 수 있는 기능 추가
@@ -73,11 +79,5 @@ public class Dog extends Animal {
         System.out.println(getName() + "이(가) 공을 물어옵니다.!");
     }
 
-    public  void showInfo(){
-        System.out.println("===== 정보 =====");
-        System.out.println("이름 : " + getName());
-        System.out.println("나이 : " + getAge());
-        System.out.println(" 색상: " + getBreed()); // 앞에 is 가 붙으면 get 생략
-        // is get 둘다 동사이기 때문에 is를 사용
-    }
+
 }

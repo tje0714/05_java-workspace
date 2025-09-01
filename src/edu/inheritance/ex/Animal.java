@@ -59,12 +59,17 @@ public class Animal {
     }
 
     public void makeSound() {
-        System.out.println(name + "이(가) 멍멍 짖습니다.");
+        System.out.println(name + "이(가) 웁니다.");
     }
 
     public void move() {
-        System.out.println(name + "이(가) 네 발로 뛰어다닙니다.");
+        System.out.println(name + "이(가) 다닙니다.");
     }
-
+    public void showInfo(){
+        System.out.println("===== 정보 =====");
+        System.out.println("이름 : " + getName());
+        System.out.println("나이 : " + getAge());
+        System.out.println(" 색상: " + getColor());
+    }
 
 }

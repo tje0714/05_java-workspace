@@ -13,6 +13,9 @@ public class Bird extends Animal {
     // 필드 속성 인스턴스변수
     private double wingspan;
 
+    public Bird(String name,int age,String color){
+        super(name,age,color);
+    }
     public Bird(String name,int age,double wingspan) {
         super(name, age);
         this.wingspan = wingspan;
@@ -31,28 +34,31 @@ public class Bird extends Animal {
     public void setWingspan(double wingspan) {
         this.wingspan = wingspan;
     }
+
     @Override // Animal 클래스에 작성한 기능 재사용
     public void makeSound() {
         System.out.println(getName() + "이(가) 짹짹 웁니다.");
     }
+
     @Override // Animal 클래스에 작성한 기능 재사용
     public void move() {
         System.out.println(getName() + "이(가) 날아다닙니다.");
+    }
+
+    @Override
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("날개 길이 : " + getWingspan());
     }
 
     // Bird 에서만 사용할 수 있는 기능들
     public void fly(){
         System.out.println(getName() + "이(가) 높이 날아오릅니다.");
     }
+
     public void buildNest(){
         System.out.println(getName() + "이(가) 둥지를 만듭니다.");
     }
 
-    public  void showInfo(){
-        System.out.println("===== 정보 =====");
-        System.out.println("이름 : " + getName());
-        System.out.println("나이 : " + getAge());
-        System.out.println(" 색상: " + getWingspan());
-    }
 }
 

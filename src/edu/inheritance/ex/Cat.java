@@ -63,6 +63,11 @@ public class Cat extends Animal {
         System.out.println(getName() + "이(가) 네 발로 조용히 걸어다닙니다.");
     }
 
+    @Override
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("실내묘 : " + isIndoor());
+    }
     // Cat 클래스에서만 사용할 수 있는 기능들
     public void purr(){
         System.out.println(getName() + "이(가) 골골 소리를 냅니다.");
@@ -70,12 +75,5 @@ public class Cat extends Animal {
 
     public void scratch(){
         System.out.println(getName() + "이(가) 발톱으로 긁습니다.");
-    }
-    public  void showInfo(){
-        System.out.println("===== 정보 =====");
-        System.out.println("이름 : " + getName());
-        System.out.println("나이 : " + getAge());
-        System.out.println(" 색상: " + isIndoor()); // 앞에 is 가 붙으면 get 생략
-        // is get 둘다 동사이기 때문에 is를 사용
     }
 }
