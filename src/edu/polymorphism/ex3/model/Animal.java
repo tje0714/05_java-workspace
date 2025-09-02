@@ -46,8 +46,7 @@ public class Animal {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", color='" + color + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+                ", type='" + type + '\'' ;
     }
 
     // 추후 중괄호 내부에 기능을 작성할 것!
@@ -58,4 +57,6 @@ public class Animal {
     // 상속을 받을 때 필수로 해야하는 기능에 대해 설정하는 방법
     public void makeSound(){};
     public void move(){};
+    public void doSpecialAction(){};
+    public void eat(){};
 }

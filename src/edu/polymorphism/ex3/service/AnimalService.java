@@ -1,4 +1,6 @@
 package edu.polymorphism.ex3.service;
+// edu.polymorphism.ex3.model. 폴더 안에 있는 모든 문서를 참조하겠다.
+import edu.polymorphism.ex3.model.*;
 
 public class AnimalService {
 
@@ -7,14 +9,23 @@ public class AnimalService {
         Cat cat = new Cat("야옹이", 2, "흰색", "고양이");
         Bird bird = new Bird("짹짹이", 1, "노란색", "새");
 
+        dog.setTrained(true);
+
         System.out.println("=== 동물들의 행동 ===");
         // 다형성으로 출력 하기!
         // 다형성관련 변수 이름 : animals    animal
-        Animal animals = {dog, cat, bird};
+        Animal[] animals = {dog, cat, bird};
+        for(Animal animal : animals){
+            animal.makeSound();
+            animal.move();
+            animal.doSpecialAction();
+            animal.eat();
+            System.out.println(animal.toString());
+        }
+        /*
         // 개
         dog.makeSound();
         dog.move();
-        dog.setTrained(true);
         dog.doSpecialAction();
         dog.eat();
         System.out.println(dog.toString());
@@ -36,6 +47,7 @@ public class AnimalService {
         bird.doSpecialAction();
         bird.eat();
         System.out.println(bird.toString());
+         */
     }
 
 }

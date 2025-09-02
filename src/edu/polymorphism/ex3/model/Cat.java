@@ -48,4 +48,25 @@ public class Cat extends Animal {
     public void move() {
         System.out.println(getName() + "이(가) 조용히 걸어갑니다.");
     }
+
+    @Override
+    public void eat() {
+        System.out.println(name + "이(가) 참치캔을 먹습니다.");
+    }
+
+    @Override
+    public void doSpecialAction() {
+        System.out.println(name + "이(가) 그루밍을 합니다.");
+        if (livesLeft > 0) {
+            System.out.println("남은 목숨: " + livesLeft + "개");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "livesLeft=" + livesLeft +
+                ", isIndoor=" + isIndoor +
+                '}';
+    }
 }
