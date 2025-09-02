@@ -23,14 +23,29 @@ public class AnimalInheritanceRun {
         Cat cat1 = new Cat("야옹이",2,"흰색",true);
         Bird bird1 = new Bird("짹짹이",1,"노란색");
         Bird bird2 = new Bird("파랑이",2,"파란색",25.5);
+    //                      0    1     2    3
+        Animal[] animals = {dog1,cat1,bird1,bird2};
+    // Animal 클래스 내부에 작성된 필드, 기능만 호출 출력 가능
+        for (Animal animal : animals) {
+            // 예를 들어 animals 에서 animal 내 0 번 째인 dog1 내부에 작성된 데이터가
+            // 전달되면 animal 에는 dog1에 작성된 데이터를 기반으로 출력
+            // 출력될 때는 Animal 에 작성된 기능을 재사용하여 dog1에 맞게 수정된 기능내용이 출력
+            // 하지만 animal에는 존재하지 않고, dog1에만 존재하는 기능은 출력할 수 없음
+            // 왜냐하면 animal 틀 이외의 기능이기 때문!
+            animal.showInfo();
+            animal.eat();
+            animal.sleep();
+            animal.makeSound();
+            animal.move();
+        }
 
-        // ============== 문제 4: 동물 정보 출력 ==============
+/*
         System.out.println("=== 동물원 친구들 소개 ===");
         dog1.showInfo();
         cat1.showInfo();
         bird1.showInfo();
         bird2.showInfo();
-        // ============== 문제 5: 공통 행동 테스트 ==============
+
         System.out.println("\n=== 식사 시간 ===");
         dog1.eat();
         cat1.eat();
@@ -43,7 +58,6 @@ public class AnimalInheritanceRun {
         bird1.sleep();
         bird2.sleep();
 
-        // ============== 문제 6: 오버라이딩된 메소드 테스트 ==============
         System.out.println("\n=== 동물들의 소리 ===");
         dog1.makeSound();
         cat1.makeSound();
@@ -55,6 +69,8 @@ public class AnimalInheritanceRun {
         cat1.move();
         bird1.move();
         bird2.move();
+
+*/
 
         System.out.println("\n=== 동물별 특별한 행동 ===");
         dog1.wagTail();
