@@ -29,14 +29,30 @@ public class VehicleInheritanceRun {
         Bicycle bike1 = new Bicycle ("트렉", "FX", 2023, "검정색");
         Bicycle bike2 = new Bicycle("자이언트", "이스케이프", 2023, "빨간색", 21, true);
 
+
+
+
+
+        // 다형성을 활용해서 한 번에 출력
+        // 변수이름 : vehicles 배열형태
+        // 배열 출력 for 문 내 변수이름 :     info
+        Vehicle[] vehicles = {bike1,bike2,m1,car1};
+
+        for (Vehicle info : vehicles) {
+            System.out.println();
+            info.showInfo();
+            System.out.println("=== 시동 걸기 ===");
+            info.start();
+            System.out.println("=== 정지하기 ===");
+            info.stop();
+        }
+        /*
         // ============== 문제 4: 교통수단 정보 출력 ==============
         System.out.println("=== 교통수단 정보 ===");
         car1.showInfo();
         m1.showInfo();
         bike1.showInfo();
         bike2.showInfo();
-
-
         // ============== 문제 5: 공통 행동 테스트 ==============
         System.out.println("\n=== 시동 걸기 ===");
         car1.start();
@@ -49,7 +65,7 @@ public class VehicleInheritanceRun {
         m1.stop();
         bike1.stop();
         bike2.stop();
-
+        */
 
         // ============== 문제 6: 오버라이딩된 메소드 테스트 ==============
         System.out.println("\n=== 가속 방식 ===");

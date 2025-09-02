@@ -36,6 +36,17 @@ public class NaverService {
         System.out.println("작성합니다.");
     }
 
+    public void showUserInfo()
+    {
+        System.out.println("NaverService{" +
+                "serviceName='" + serviceName + '\'' +
+                ", userId='" + userId + '\'' +
+                ", userNickname='" + userNickname + '\'' +
+                ", userLevel=" + userLevel +
+                '}');
+    }
+
+
     public String getServiceName() { return serviceName; }
     public String getUserId() { return userId; }
     public String getUserNickname() { return userNickname; }
