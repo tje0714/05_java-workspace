@@ -44,29 +44,6 @@ public class AnimalBad {
         this.color = color;
         this.type = type;
 
-        // 타입별로 초기화... 복잡함
-        if (type.equals("개")) {
-            this.breed = "믹스";
-            this.isTrained = false;
-            this.livesLeft = 0; // 사용 안 함
-            this.isIndoor = false; // 사용 안 함
-            this.wingSpan = 0.0; // 사용 안 함
-            this.canFly = false; // 사용 안 함
-        } else if (type.equals("고양이")) {
-            this.livesLeft = 9;
-            this.isIndoor = true;
-            this.breed = null; // 사용 안 함
-            this.isTrained = false; // 사용 안 함
-            this.wingSpan = 0.0; // 사용 안 함
-            this.canFly = false; // 사용 안 함
-        } else if (type.equals("새")) {
-            this.wingSpan = 30.0;
-            this.canFly = true;
-            this.breed = null; // 사용 안 함
-            this.isTrained = false; // 사용 안 함
-            this.livesLeft = 0; // 사용 안 함
-            this.isIndoor = false; // 사용 안 함
-        }
     }
 
     // 소리내기 - if-else 지옥
