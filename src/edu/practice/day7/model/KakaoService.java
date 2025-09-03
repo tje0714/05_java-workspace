@@ -6,4 +6,14 @@ package edu.practice.day7.model;
  * 자식 클래스들 이 반드시 작성해야하는 기능이 포함되어 있는 클래스
  */
 public abstract class KakaoService {
+    protected String serviceName;
+    protected String userId;
+    protected String userNickname;
+    protected boolean isLoggedIn;
+
+
+    abstract void startService();
+    abstract void stopService();
+    abstract String getServiceType();
+    abstract void performSpecialAction();
 }
