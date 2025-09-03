@@ -5,7 +5,7 @@ package edu.polymorphism.pack3.ex1;
  * FaceBook과 Instagram 에서 implements 없이
  * post() 기능과 like() 기능을 사용할 수 있도록 추상메서드로 설정
  */
-public class Meta플랫폼 {
+public abstract class Meta플랫폼 {
     protected String 플랫폼이름;
     protected String 유저아이디;
 
@@ -42,4 +42,8 @@ public class Meta플랫폼 {
     public void logout(){
         System.out.println(유저아이디 + " 님이 " + 플랫폼이름 + " 에 로그아웃 했습니다.");
     }
+
+
+    public abstract void post(String content);
+    public abstract void like(String postId);
 }
