@@ -15,4 +15,10 @@ public class 일반Member extends Member{
     public double 할인율() {
         return 0.05; //일반멤버는 5% 할인
     }
+
+    @Override
+    public void 쿠폰과혜택() {
+        System.out.println("보유하고 있는 쿠폰과 혜택이 존재하지 않습니다.\n" +
+                "구독 서비스에 따라 쿠폰과 혜택을 받으실 수 있습니다.\n");
+    }
 }

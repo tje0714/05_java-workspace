@@ -31,4 +31,10 @@ public class 프리미엄Member  extends Member{
         return 0.15; // 15% 할인
     }
 
+    @Override
+    public void 쿠폰과혜택() {
+        System.out.println("현재 " + get쿠폰() + " 을 보유하고 있습니다.\n" +
+                "아쉽게도 혜택은 존재하지 않습니다\n" +
+                "VIP로 구독 업그레이드 하기\n");
+    }
 }
