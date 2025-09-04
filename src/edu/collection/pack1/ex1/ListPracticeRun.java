@@ -12,7 +12,8 @@ public class ListPracticeRun {
       //  problem2();
         // problem3();
        // problem4();
-        problem5();
+       // problem5();
+        problem6();
     }
 
     // void 앞에 static이 붙는다는 것은.. 변수이름에 의하여 호출되지 않고,
@@ -39,7 +40,6 @@ public class ListPracticeRun {
         int target = intlist.remove(0);
         System.out.println(target);
     }
-
     public static void problem3() {
         List<String> menuList = new ArrayList<>();
         menuList.add("김치찌개");
@@ -60,7 +60,6 @@ public class ListPracticeRun {
         System.out.println("제거된 메뉴는 : " + remove메뉴);
 
     }
-
     public static void problem4() {
         List<String> strList = new ArrayList<>();
         strList.add("사과");
@@ -116,5 +115,26 @@ public class ListPracticeRun {
         // 2. 짝수만 찾아서 출력하세요 (힌트: 숫자 % 2 == 0)
         // 3. 5보다 큰 숫자의 개수를 세어보세요
         // 4. 가장 큰 숫자를 찾아서 출력하세요
+    }
+    public static void problem6() {
+        List<String> strList = new ArrayList<>();
+        strList.add("게임");
+        strList.add("요리");
+        strList.add("독서");
+        strList.add("요리");
+        strList.add("요리");
+        System.out.println(strList);
+
+        System.out.println("요리가 몇 번 째로 들어있나 ? : " + strList.indexOf("요리"));
+        //   요리가 몇 번 째로 들어있나 ? : 1
+        // indexOf() 는 중복된 데이터가 여러 개 있을 경우 맨 앞에 있는 index 번호만 출력
+
+        // 요리가 들은 모든 index 를 보고 싶어요.
+        for (int i = 0; i < strList.size(); i++) {
+            if(strList.get(i).equals("요리")) {  // equals 는 문자열 비교하는 기능
+                // equals 는 비교했을 때 동일하면 true 다르면 false
+                System.out.println(i + " 번 째 위치");
+            }
+        }
     }
 }
