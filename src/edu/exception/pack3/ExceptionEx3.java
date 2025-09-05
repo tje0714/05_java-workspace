@@ -12,6 +12,7 @@ UnChecked Exception : 확인 안해도 되는 예외
  */
 
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class ExceptionEx3 {
@@ -22,13 +23,17 @@ public class ExceptionEx3 {
         if(result == 1)
         {
             throw new RuntimeException(); // 빨간줄 안뜸
+
+            // throw new IOException(); // 빨간줄 뜸
+            // -> try catch 를 통해 예외처리를 필수로 진행해야함
+
         }
     }
 
     public void method2() {
         int result = 101;
         if(result > 100) {
-            throw new 개발자Exception();
+            throw new 개발자Exception();// -> try-catch 필수 아님
         }
     }
 }
