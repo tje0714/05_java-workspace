@@ -14,7 +14,9 @@ public class CustomExceptionService {
 
         try {
             int height = sc.nextInt();
-
+            if(height <= 0 ) {
+                throw new NegativeNumberException("키는 0보다 작을 수 없습니다.");
+            }
             // 여기에 코드를 작성하세요
             // 키가 0 이하면 NegativeNumberException을 발생시키세요
 
@@ -37,7 +39,9 @@ public class CustomExceptionService {
 
             // 여기에 코드를 작성하세요
             // 비밀번호가 6자 미만이면 TooShortPasswordException을 발생시키세요
-
+            if(password.length() < 6) {
+                throw new TooShortPasswordException("비밀번호는 6자 미만이 될 수 없습니다.");
+            }
             System.out.println("비밀번호가 설정되었습니다!");
 
         } catch (TooShortPasswordException e) {
@@ -55,6 +59,9 @@ public class CustomExceptionService {
 
             // 여기에 코드를 작성하세요
             // 점수가 0미만 또는 100초과면 InvalidScoreException을 발생시키세요
+            if(score < 0 || score > 100) {
+                throw new InvalidScoreException("점수는 -이거나 100 초과가 될 수 없습니다.");
+            }
 
             System.out.println("입력된 점수: " + score + "점");
 
@@ -72,7 +79,9 @@ public class CustomExceptionService {
 
         try {
             String name = sc.nextLine();
-
+            if(name.trim().isEmpty()) {
+                throw new EmptyNameException();
+            }
             // 여기에 코드를 작성하세요
             // 이름이 비어있거나 공백만 있으면 EmptyNameException을 발생시키세요
             // 힌트: name.trim().isEmpty() 사용
@@ -94,7 +103,9 @@ public class CustomExceptionService {
 
             // 여기에 코드를 작성하세요
             // 상품 개수가 10개를 초과하면 TooManyItemsException을 발생시키세요
-
+            if(itemCount > 10) {
+                throw new TooManyItemsException("상품 개수는 10개를 초과할 수 없습니다.");
+            }
             System.out.println("장바구니에 " + itemCount + "개 상품을 담았습니다!");
 
         } catch (TooManyItemsException e) {
