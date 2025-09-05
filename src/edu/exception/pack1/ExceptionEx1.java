@@ -3,7 +3,39 @@ package edu.exception.pack1;
 import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+/*
+ 예외 발생 구문을 try-catch 로 처리 (예외 처리)
 
+    - try{} : 문제가 발생할 것 같은(가능성이 있는) 코드들을 시도하는 구문
+
+    - catch(예외){} : try 구문 시도 중 예외가 발생되어 던져진 경우
+                        catch(예외)에 작성된 예외와 던져진 예외가 같으면
+                        잡아서 {} 내 구문을 수행
+                        -> 발생된 예외를 잡아서 처리했기 때문에 프로그램이 멈추지 않고 정상 수행
+
+                   catch 구문은 1개 이상 작성 가능 무한대로 작성 가능
+
+                   catch (특정1 예외상황 발생시 ) {
+                            특정1 예외 상황에 대해서 개발자가 대처해야할 기능 작성
+                   } catch(특정2 예외상황 발생시 ) {
+                            특정2 예외 상황에 대해서 개발자가 대처해야할 기능 작성
+                   } ..... {
+
+                   } catch (Exception e){
+
+                        개발자가 생각치 못한 상황을 확인하고, 추후에 대처할 기능을 위에 추가할 것!
+                        대처를 진행하기 보다는 문제가 발생한 환경에 대해 개발자에게 전달
+
+                   }
+
+
+
+
+
+    - finally       : 마지막에 반드시 수행해야하는 구문
+                    try 구문에서 예외 발생 여부와 관계 없이
+                    무조건 수행해야하는 구문을 작성
+* */
 public class ExceptionEx1 {
     /*
     Exception : 코드로 처리 가능한 에러
