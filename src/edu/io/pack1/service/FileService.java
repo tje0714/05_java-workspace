@@ -242,6 +242,15 @@ public class FileService {
                 type = "폴더";
             }
 
+            // 파일 크기(byte)
+
+            String size = file.length() + "B";
+            if(file.isDirectory()) {
+                size = ""; // 폴더는 크기를 현재 설정하지 않고 아무런 크기가 없는 상태로 변경
+            }
+
+            // 파일 이나 폴더 변경될 때마다 출력해서 확인
+            System.out.printf("%-20s %-20s %-5s  %10s\n", name, date, type, size);
 
         }
 
