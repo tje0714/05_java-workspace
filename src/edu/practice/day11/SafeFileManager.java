@@ -1,14 +1,15 @@
 package edu.practice.day11;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 
 public class SafeFileManager {
 
 
     public void method1() {
+        Scanner sc=new Scanner(System.in);
+        File file;
+
         Map<String, String> fileMap = new HashMap<>(); // 파일명 : 파일경로
         Map<String, Long> fileSizeMap = new HashMap<>(); // 파일명 : 파일크기
         BufferedReader br = null;
@@ -32,11 +33,23 @@ public class SafeFileManager {
 
         } catch (FileNotFoundException e) {
             //만약에 파일이 존재하지 않을 경우
-            // 파일을 생성하시겠습니까? 물어보고
-            // Scanner 이용해서 yes 라고 대답하면
-            // File 을 이용해서 config.txt 파일 생성
-            // 파일 생성을 완료합니다.
-            throw new RuntimeException(e);
+            System.out.println("존재하지 않는 파일입니다.");
+            System.out.print("해당 파일을 생성하시겠습니까?");
+            String 대답 = sc.nextLine();
+
+            if("yes".equals(대답)) {
+                file = new File(fm);
+                try {
+                    file.createNewFile();
+                    System.out.println("파일 생성이 완료되었습니다.");
+                } catch (IOException ex) {
+                   // 파일 생성 실패했을 때 문제추가하기
+                }
+            } else {
+                System.out.println("파일 생성을 취소합니다.");
+            }
+        }finally {
+            System.out.println("프로그램을 종료합니다.");
         }
     }
 
