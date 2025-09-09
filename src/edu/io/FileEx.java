@@ -99,8 +99,8 @@ public class FileEx {
         Path path3 = Path.of("file.txt");
 
         // 절대경로 (전체적인 경로)
-        Path 결대경로1 = Path.of("C:","Users","user","Desktop","file.txt");
-        Path 결대경로2 = Path.of("/","home","user","Desktop","file.txt");
+        Path 절대경로1 = Path.of("C:","Users","user","Desktop","file.txt");
+        Path 절대경로2 = Path.of("/","home","user","Desktop","file.txt");
 
         // 상대경로 (현재 자바를 실행하고 있는 폴더 위치 기준)
         Path 상대경로1 = Path.of("file.txt"); //java_basic 폴더에서 file.txt
@@ -140,7 +140,7 @@ public class FileEx {
 
     /*
 
-       Paths.get(); : 1개 이상의 문자열 작성
+       Paths.get()   : 1개 이상의 문자열 작성
                         , 를 이용하여 여러 경로 요소를 조합 가능
                       Java11 버전부터는 Path.of() 사용 권장
        Path.of()    : 1개 이상의 문자열 작성
