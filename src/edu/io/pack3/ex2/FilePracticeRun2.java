@@ -22,6 +22,17 @@ public class FilePracticeRun2 {
 
         System.out.print("내용을 확인할 파일이름 + 확장자를 입력하세요 : ");
         String fileName = sc.nextLine();
+        int dotIndex = fileName.lastIndexOf(".");
+        if(dotIndex != -1 ||dotIndex == fileName.length()-1){
+            System.out.println("확장자가 존재하지 않습니다.");
+            return;
+        }
+
         fps.method1(dirName,fileName);
+
+        // fileName 뒤에 확장자를 작성하지 않았을 경우 확장자가 없다 프로그램을 종료합니다.
+        // 추가하기
+
+
     }
 }

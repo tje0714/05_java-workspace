@@ -14,13 +14,14 @@ public class FilePracticeService2 {
         } else { //폴더는 선택하지 않았고 파일내용만 선택  java_basic 에서 filename에 작성한 파일을 선택하고 출력
             path = Path.of(fileName);
         }
-        System.out.println("path.getParent()" + path.getParent());
+        System.out.println("path : " + path);
+        System.out.println("path.getParent() : " + path.getParent());
         if(path.getParent() !=null ){
             if(!Files.exists(path.getParent())){
                 System.out.println("폴더가 존재하지 않습니다. 폴더이름 확인해주세요.");
                 return;
             }
-            if(!Files.isDirectory(path)){
+            if(!Files.isDirectory(path.getParent())){
                 System.out.println("폴더가 아니고, 파일 형태 입니다.");
                 return;
             }
