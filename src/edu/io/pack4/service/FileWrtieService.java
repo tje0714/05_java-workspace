@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class FileWrtieService {
@@ -56,6 +59,31 @@ public class FileWrtieService {
 
 
     public void 현대방식(){
+        System.out.print("생성할 파일이름을 입력하세요 : ");
+        String fileName = sc.nextLine();
 
+        System.out.println("종료 를 입력하면 파일작성이 종료됩니다.");
+        System.out.print("파일에 쓸 내용을입력하세요 :");
+        StringBuilder content = new StringBuilder();
+        String line;
+        
+        while (!(line = sc.nextLine()).equals("종료")){
+            content.append(line).append("\n");
+        }
+        
+        // 여기부터 다름
+
+        Path path = Path.of("files/" + fileName);
+        // getParent 는 파일이름.확장자이름이 나오기 전까지의 폴더 경로
+        try {
+            // 폴더들이 존재하지 않으면  생성 mkdir   / mkdirs 로 구분하지말고
+            // 폴더들이라는 전제하에 없으면 생성하겠다. createDirectories() 기능 사용
+            Files.createDirectories(path.getParent());
+            Files.writeString(path, content.toString()); // 경로 + 파일 안에 작성내용 넣고 저장하기
+            // 저장하기 = close 와 같음
+            System.out.println("파일 생성 완료 : " + fileName);
+        } catch (IOException e) {
+            System.out.println("파일 생성 중 오류 발생");
+        }
     }
 }
