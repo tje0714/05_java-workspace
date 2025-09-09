@@ -38,4 +38,8 @@ public class FileService3 {
             }
         }
     }
+
+    public void 현대방식(){
+
+    }
 }
