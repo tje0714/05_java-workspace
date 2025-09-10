@@ -16,7 +16,7 @@ public class 프로필사진run {
 
         // 인터넷에서 이미지 주소를 복사한 후
         // 원하는 이미지를
-        String imgUrl2 = "이미지 주소 넣어주기";
+        String imgUrl2 = "https://img.freepik.com/free-vector/cute-shiba-inu-dog-sitting-heaven-with-cloud-cartoon-vector-icon-illustrationanimal-holiday-flat_138676-9999.jpg?semt=ais_hybrid&w=740&q=80";
         service.saveImg2(imgUrl2);
     }
 }
