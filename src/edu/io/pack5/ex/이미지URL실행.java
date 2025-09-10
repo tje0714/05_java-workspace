@@ -15,6 +15,6 @@ public class 이미지URL실행 {
         String name = sc.nextLine();
 
         String imgName = name + ".png";   // 사용자에게 1, 2, 3중 선택하여 확장자명칭 추가
-        s.dirSaveImg();
+        s.dirSaveImg(imgUrl,imgDir,imgName);
     }
 }
