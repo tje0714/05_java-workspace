@@ -157,16 +157,57 @@ public class 중복된_파일_폴더명칭_Service {
             path = Path.of("폴더1",NewName);
             count++;
         }
+        String imgURL = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZWlPjghR3F6rno2RtA56T9mRyUL_BWILiAmpxP0-npm6nmw-Gsm9AFDYLAl8paow4CEKMeRHaQn39tB4VniZan8svg2JIpXXOO6L84F4";
 
         try {
-            Files.createDirectories(path.getParent());// profile/member01 까지만 포함
-            String imgURL = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZWlPjghR3F6rno2RtA56T9mRyUL_BWILiAmpxP0-npm6nmw-Gsm9AFDYLAl8paow4CEKMeRHaQn39tB4VniZan8svg2JIpXXOO6L84F4";
+            Files.createDirectories(path.getParent());
             URL url = new URL(imgURL);
             InputStream in = url.openStream();
             Files.copy(in,path);
-            in.close(); // 메모리 누수 방지를 위해서 실시간으로 데이터를 받아오는 stream을 종료
+            in.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+
+
+    // profiles/member01 폴더 안에 사진.png 라는 명칭이 존재하면 (숫자) 로 파일이름이 덮어쓰기 되지 않도록 설정
+    public void saveImage5() {
+        // data:image/jpeg;base64,/ = 데이터 숫자 자체값이어서 주소로 읽을 수 없음
+        String imgUrl = "https://pimg.mk.co.kr/news/cms/202309/20/news-p.v1.20230920.b0957112c0ec4565918a1ae7b82043d8.jpg";
+        String originName = "사진.png";
+       // "기획팀.사원.홍길동.png"
+        Path path = Path.of("profiles", "member01", originName);
+
+        int 마침표위치 = originName.lastIndexOf(".")   ; // 마지막에 위치한 마침표의 위치
+        String 확장자없는이름 = originName.substring(0,마침표위치);
+        String 확장자이름 = originName.substring(마침표위치); // 마침표위치부터 모두다~~~마지막까지
+
+        int 숫자 = 1;
+        while(Files.exists(path)){
+            String 새로운이름 = 확장자없는이름  + "(" + 숫자 + ")" + 확장자이름;
+            path = Path.of("profiles", "member01", 새로운이름);
+            // 혹시나 현재 작성한 숫자 번호를 포함한 전체이름이 파일에 존재할 수 있으므로
+            // 미리 숫자번호를 +1 하여 대비해둔다.
+            숫자++;
+        }
+
+        try {
+            Files.createDirectories(path.getParent()); // 만약에 폴더 없으면 추가
+
+            URL 인터넷주소다 = new URL(imgUrl);
+            InputStream 인터넷에서사진갖고오기 = 인터넷주소다.openStream();
+            Files.copy(인터넷에서사진갖고오기,path);
+            System.out.println(path + "사진 저장을 완료했습니다.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
+
 }
