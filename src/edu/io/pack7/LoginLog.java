@@ -61,6 +61,7 @@ public class LoginLog {
 
     }
     /*
+    // 파일이름 다르게 설정할 때 자주사용
     System.currentTimeMillis() : 1970년 01월 01일 00분 00초 부터 흐른 시간을 숫자로 표현
 
     LocalDateTime.now()         : 현재 시간을 문자열 형태로 출력
