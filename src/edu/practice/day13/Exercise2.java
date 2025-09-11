@@ -97,7 +97,7 @@ public class Exercise2 {
             Files.writeString(sourceFile,"임시 데이터");
             System.out.println("1단계 : 임시 파일 생성 완료 : " + sourceFile);
 
-            // 2단계 : 폴더 생성
+            // 2단계 : 폴더 생성하기
             Files.createDirectories(archiveDir);
             Files.createDirectories(backupDir);
             System.out.println("2단계 : 폴더 생성 완료 : " + archiveDir.getFileName()  + ", " + backupDir.getFileName());
