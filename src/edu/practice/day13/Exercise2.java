@@ -93,7 +93,7 @@ public class Exercise2 {
 
         try {
             // 1단계 : 임시 파일 생성
-            Files.createDirectories(tempDir);
+            Files.createDirectories(sourceFile.getParent());
             Files.writeString(sourceFile,"임시 데이터");
             System.out.println("1단계 : 임시 파일 생성 완료 : " + sourceFile);
 
