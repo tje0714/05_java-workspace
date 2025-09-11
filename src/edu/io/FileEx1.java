@@ -121,6 +121,16 @@ public class FileEx1 {
 
 
 
+    public void 경로결합(){
+        Path dir = Path.of("폴더1/폴더2");
+
+        Path file = dir.resolve("파일이름.txt");
+
+        // resole() : 기존 경로와 새로운 경로나 파일을 결합하는 기능
+        //  file 에는 폴더1/폴더2/파일이름.txt 로 결합해서 사용하는기능
+    }
+
+
 
 
 
