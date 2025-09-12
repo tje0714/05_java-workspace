@@ -153,10 +153,11 @@ public class StringBuilderService {
             if(Files.exists(customerFile)){
                 System.out.println("기존 고객 명단을 업데이트합니다");
                 Files.writeString(customerFile,customerData.toString(),StandardOpenOption.APPEND);
+            } else {
+                Files.writeString(customerFile,customerData.toString());
+                System.out.println("고객 명단이 저장되었습니다:" +  customerFile.getFileName());
             }
-            Files.writeString(customerFile,customerData.toString());
-            System.out.println("고객 명단이 저장되었습니다:" +  customerFile.getFileName());
-            //StandardOpenOption.CREATE
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -167,6 +168,42 @@ public class StringBuilderService {
         Path orderDir = Path.of("orders");
         Path orderFile = Path.of("orders", "order_history.txt");
         StringBuilder orderData = new StringBuilder();
+        Scanner scanner = new Scanner(System.in);
         int totalAmount = 0;
+
+        try {
+            Files.createDirectories(orderDir);
+            System.out.println(orderDir + " 폴더가 생성되었습니다.");
+            while(true) {
+                System.out.println("메뉴 주문을 입력하세요 (주문완료를 입력하면 저장됩니다)");
+                System.out.print("메뉴명:");
+                String name = scanner.nextLine();
+
+                if(name.equals("주문완료")) {
+                    break;
+                }
+                System.out.print("수량:");
+                int quantity =scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("가격:");
+                int price =scanner.nextInt();
+                scanner.nextLine();
+
+                // 개별 주문 총액 계산 및 전체 주문 금액에 추가
+                //              수량       가격
+                int itemTotal = quantity * price;
+                totalAmount += itemTotal;
+
+                orderData.append("메뉴명: " + name+
+                        "수량: " + quantity +
+                        "가격: " + price +  " 원"+
+                        "총액: " + price  +  " 원"+
+                        "\n");
+            }
+            Files.writeString(orderFile,orderData.toString(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+            System.out.println("주문 내역이 저장되었습니다: " + orderFile.getFileName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
