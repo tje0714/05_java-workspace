@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -44,21 +45,85 @@ public class StringBuilderService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //Files.createDirectories();
-        //Files.writeString(), Files.readString()
     }
 
     public void manageGrades(){
         String today = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Path gradeDir = Path.of("grades");
         Path gradeFile = Path.of("grades", today + "_성적표.txt");
+        StringBuilder gradeData = new StringBuilder();
+        Scanner scanner = new Scanner(System.in);
+        // 1. 폴더 확인 생성
+        try {
+            Files.createDirectories(gradeDir);
+            System.out.println(gradeDir + "폴더 생성되었습니다.");
+            System.out.println("학생 성적을 입력하세요. (종료를 입력하면 저장됩니다.)");
+            while(true) {
+                System.out.print("이름 : ");
+                String name =scanner.nextLine();
+
+                if(name.equals("종료")){
+                    break;
+                }
+                System.out.print("국어 : ");
+                int kor =scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("영어 : ");
+                int eng =scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("수학 : ");
+                int math =scanner.nextInt();
+                scanner.nextLine();
+
+                double avg = (kor+eng+math)/3;
+
+                gradeData.append("이름 : " + name + ", 국어 : " +kor +", 수학 : " + math + ", 영어 : " + eng+", 평균 : " +avg + "\n");
+                System.out.println("입력 완료되었습니다.");
+            }
+
+            // 모든입력이 되어, 종료 를 작성했다면
+            Files.writeString(gradeFile,gradeData.toString());
+            System.out.println("오늘 성적표가 작성되었습니다 : " + gradeFile.getFileName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void recordCount(){
         Path householdDir = Path.of("household");
         Path accountFile = Path.of("household", "account_book.txt");
-       // String timestamp = getCurrentTime();
+        String timestamp = getCurrentTime();
         StringBuilder accountData = new StringBuilder();
-        // StandardOpenOption.CREATE, StandardOpenOption.APPEND
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("가계부 내역을 입력하세요 (끝을 입력하면 저장됩니다)");
+        while(true) {
+            System.out.print("항목 : ");
+            String 항목 = scanner.nextLine();
+            if(항목.equals("끝")) {
+                break;
+            }
+            System.out.print("금액 : ");
+            int 금액 = scanner.nextInt();
+            scanner.nextLine(); // 숫자 나 소수자리는 작성하고나면 줄바꿈처리가 되기 때문에 반드시 nextLine()
+            System.out.print("수입/지출 : ");
+            String 수입지출 = scanner.nextLine();
+            accountData.append(timestamp + 항목 + 금액 + 수입지출);
+            System.out.println("입력이 완료되었습니다.");
+        }
+        try {
+            Files.createDirectories(householdDir);
+            Files.writeString(accountFile,accountData.toString(),StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            System.out.println("가계부 기록이 추가되었습니다.");
+            System.out.println("전체 가계부 기록" + Files.readString(accountFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public String getCurrentTime(){
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 }
