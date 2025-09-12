@@ -33,7 +33,7 @@ public class 다수의직원정보작성후실행 {
             System.out.println("입력 완료되었습니다. 다음직원 정보를 입력하거나 종료를 입력하세요.");
         }
 
-        // 종료를 입력하면
+        // 종료를 입력하면 파일 저장
         Path path = Path.of("files","employee.txt");
         try {
             Files.createDirectories(path.getParent());
