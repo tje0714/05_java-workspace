@@ -91,7 +91,7 @@ public class StringBuilderService {
         }
     }
 
-    public void recordCount(){
+    public void recordAccount(){
         Path householdDir = Path.of("household");
         Path accountFile = Path.of("household", "account_book.txt");
         String timestamp = getCurrentTime();
@@ -125,5 +125,48 @@ public class StringBuilderService {
     }
     public String getCurrentTime(){
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    public void registerCustomer(){
+        Path customerDir = Path.of("customers");
+        Path customerFile = Path.of("customers", "customer_list.txt");
+        StringBuilder customerData = new StringBuilder();
+        Scanner scanner = new Scanner(System.in);
+        try {
+            Files.createDirectories(customerDir);
+
+            while (true) {
+                System.out.println("고객 정보를 입력하세요 (exit을 입력하면 저장됩니다)");
+                System.out.print("이름:");
+                String name = scanner.nextLine();
+                if(name.equals("exit")) {
+                    break;
+                }
+                System.out.print("전화번호:");
+                String phone = scanner.nextLine();
+                System.out.print("이메일:");
+                String email = scanner.nextLine();
+                System.out.print("주소:");
+                String address = scanner.nextLine();
+                customerData.append( "이름 : " + name +"phone : " + phone +"email : " + email +"address : " + address +"\n");
+            }
+            if(Files.exists(customerFile)){
+                System.out.println("기존 고객 명단을 업데이트합니다");
+                Files.writeString(customerFile,customerData.toString(),StandardOpenOption.APPEND);
+            }
+            Files.writeString(customerFile,customerData.toString());
+            System.out.println("고객 명단이 저장되었습니다:" +  customerFile.getFileName());
+            //StandardOpenOption.CREATE
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void processOrder(){
+        Path orderDir = Path.of("orders");
+        Path orderFile = Path.of("orders", "order_history.txt");
+        StringBuilder orderData = new StringBuilder();
+        int totalAmount = 0;
     }
 }
